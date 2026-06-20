@@ -1,0 +1,355 @@
+WEEK 04 PROGRESS REPORT
+
+EdgeCloud Monitor – Sprint 2 Edge Telemetry Integration and Sprint 3 Alert Service Preparation
+
+Overview
+
+During Week 04, development focused on completing Sprint 2 Edge Telemetry integration activities for EdgeCloud Monitor.
+
+The primary objective was to implement and validate the Edge Telemetry Agent and establish end-to-end communication between edge devices and the cloud-native monitoring platform. This included telemetry collection, telemetry transmission, heartbeat integration, database persistence validation, Docker Compose testing, API Gateway integration, and supporting technical documentation.
+
+The week concluded with initial planning and preparation activities for Sprint 3 Alert Service development.
+
+⸻
+
+Objectives Completed
+
+* Implemented the Edge Telemetry Agent foundation
+* Created telemetry collection workflow
+* Implemented telemetry submission to Monitoring Service
+* Implemented heartbeat submission to Device Service
+* Added configuration management using environment variables
+* Added structured logging and graceful shutdown support
+* Integrated Edge Agent with API Gateway
+* Validated Monitoring Service integration
+* Validated Device Service integration
+* Verified telemetry persistence in monitoring_db
+* Verified heartbeat persistence in device_db
+* Completed end-to-end workflow validation
+* Created Edge Telemetry Agent technical documentation
+* Collected testing and deployment evidence
+* Initiated Sprint 3 Alert Service planning
+
+⸻
+
+Edge Telemetry Agent Implementation
+
+Technologies Used
+
+* Python
+* Requests
+* REST APIs
+* Spring Boot Microservices
+* API Gateway
+* Monitoring Service
+* Device Service
+* Docker Compose
+* MySQL
+* GitHub
+* Jira
+
+Completed Components
+
+The Edge Telemetry Agent now includes:
+
+* configuration management
+* environment variable support
+* telemetry collection engine
+* telemetry submission workflow
+* heartbeat submission workflow
+* REST communication layer
+* logging framework
+* error handling
+* retry handling
+* graceful shutdown support
+* Docker-compatible execution
+* simulated telemetry support
+* real hardware telemetry support
+
+⸻
+
+Telemetry Collection Workflow
+
+A telemetry collection workflow was implemented to gather operational metrics from edge devices.
+
+Collected metrics include:
+
+* CPU utilisation
+* memory utilisation
+* device temperature
+* device identifier
+* collection timestamp
+
+Implemented behaviour:
+
+* configurable collection intervals
+* simulated telemetry generation
+* Raspberry Pi compatibility support
+* metric validation
+* telemetry payload generation
+
+This established the data collection layer required for edge monitoring.
+
+⸻
+
+Telemetry Submission Workflow
+
+A telemetry submission workflow was implemented to send collected metrics to the Monitoring Service.
+
+Target endpoint:
+
+POST /api/v1/monitoring/telemetry
+
+Implemented behaviour:
+
+* telemetry payload creation
+* API Gateway integration
+* Monitoring Service communication
+* successful response handling
+* failure response handling
+* retry support
+* structured logging
+
+Validated telemetry fields included:
+
+* CPU usage
+* memory usage
+* temperature
+* device ID
+* timestamp information
+
+This enabled real telemetry data to flow into the monitoring platform.
+
+⸻
+
+Heartbeat Integration Workflow
+
+A heartbeat workflow was implemented to allow edge devices to maintain operational status within the Device Service.
+
+Target endpoint:
+
+POST /api/v1/devices/heartbeat
+
+Implemented behaviour:
+
+* heartbeat payload generation
+* timestamp creation
+* ONLINE status updates
+* device tracking support
+* heartbeat persistence
+* communication failure handling
+
+This established continuous device availability tracking.
+
+⸻
+
+End-to-End Platform Validation
+
+Comprehensive validation activities were performed to verify communication across the platform.
+
+Validated workflows included:
+
+* Edge Agent startup
+* telemetry collection
+* telemetry submission
+* heartbeat submission
+* API Gateway routing
+* Monitoring Service processing
+* Device Service processing
+* database persistence
+* logging visibility
+* failure handling scenarios
+
+Validation confirmed successful communication between:
+
+* Edge Telemetry Agent
+* API Gateway
+* Monitoring Service
+* Device Service
+* MySQL databases
+
+⸻
+
+Database Validation
+
+The following databases and tables were validated.
+
+monitoring_db
+
+Validated:
+
+* telemetry_metrics
+* telemetry timestamps
+* CPU usage storage
+* memory usage storage
+* temperature storage
+* device identifiers
+
+device_db
+
+Validated:
+
+* heartbeat updates
+* ONLINE status updates
+* last heartbeat timestamps
+* device status persistence
+
+Database checks confirmed that telemetry and heartbeat data were being stored successfully.
+
+⸻
+
+Technical Documentation Activities
+
+A significant amount of documentation work was completed during Week 04.
+
+Documentation produced included:
+
+* Edge Telemetry Agent architecture
+* telemetry collection workflow
+* telemetry submission workflow
+* heartbeat integration workflow
+* deployment configuration
+* validation procedures
+* failure handling behaviour
+* API integration documentation
+* end-to-end testing evidence
+
+This documentation supports both academic reporting and future platform maintenance.
+
+⸻
+
+Sprint 3 Alert Service Preparation
+
+Development activities also began for Sprint 3.
+
+Initial Alert Service work included:
+
+* architecture review
+* requirements analysis
+* alert workflow design
+* service planning
+* monitoring event analysis
+* alert generation strategy planning
+* integration planning with Monitoring Service
+* integration planning with Device Service
+
+This prepared the platform for alerting functionality in the next sprint.
+
+⸻
+
+Technical Challenges Encountered
+
+API Gateway Validation
+
+Additional investigation was required during testing to validate gateway routing and health endpoint behaviour.
+
+Resolution:
+
+* performed route validation testing
+* verified gateway forwarding behaviour
+* confirmed successful telemetry and heartbeat routing
+
+⸻
+
+Authentication Validation
+
+Additional testing was required to confirm security configuration during gateway integration.
+
+Resolution:
+
+* validated authentication behaviour
+* confirmed secured endpoint access
+* verified gateway routing configuration
+
+⸻
+
+Raspberry Pi Hardware Availability
+
+Physical Raspberry Pi hardware was not available during the reporting period.
+
+Impact:
+
+* final hardware compatibility testing was postponed
+
+Resolution:
+
+* simulated telemetry mode was used
+* architecture remains compatible with future Raspberry Pi validation
+
+⸻
+
+Evidence Collected
+
+Evidence collected during Week 04 includes:
+
+* Edge Agent execution logs
+* telemetry submission responses
+* heartbeat submission responses
+* API Gateway validation screenshots
+* Monitoring Service validation evidence
+* Device Service validation evidence
+* database validation screenshots
+* Docker Compose evidence
+* Jira progress evidence
+* GitHub pull request evidence
+* technical documentation outputs
+
+⸻
+
+Current Platform Status
+
+Component	Status
+Discovery Service	Operational
+API Gateway	Operational
+Authentication Service	Operational
+Monitoring Service	Operational
+Device Service	Operational
+Edge Telemetry Agent	Operational
+Telemetry Collection	Implemented
+Telemetry Submission	Implemented
+Heartbeat Integration	Implemented
+Database Persistence	Validated
+End-to-End Validation	Completed
+Technical Documentation	Completed
+
+⸻
+
+Sprint 2 Progress Completed
+
+Completed work includes:
+
+* SCRUM-60 Python Edge Telemetry Agent
+* SCRUM-61 Submit Telemetry to Monitoring Service
+* SCRUM-62 Periodic Telemetry Collection
+* SCRUM-63 Edge Agent Heartbeat Integration
+* SCRUM-64 End-to-End Edge Validation
+* SCRUM-65 Edge Telemetry Agent Documentation
+
+⸻
+
+Next Planned Activities
+
+Upcoming work will focus on:
+
+* Alert Service implementation
+* Alert entity creation
+* alert database integration
+* alert creation APIs
+* alert retrieval APIs
+* alert resolution workflows
+* monitoring-driven alert generation
+* offline device alert generation
+* alert severity management
+* Alert Service documentation
+* end-to-end alert workflow testing
+* architecture documentation updates
+
+⸻
+
+Conclusion
+
+Week 04 successfully completed Sprint 2 Edge Telemetry integration activities and established the end-to-end monitoring workflow required by EdgeCloud Monitor.
+
+The Edge Telemetry Agent now supports telemetry collection, telemetry transmission, heartbeat submission, Monitoring Service integration, Device Service integration, and database persistence. Extensive validation confirmed successful communication across all platform components.
+
+The week also established the foundation for Sprint 3 by completing Alert Service planning and workflow design activities, positioning the platform for automated monitoring and alerting capabilities in the next phase of development.

@@ -1,0 +1,361 @@
+WEEK 05 PROGRESS REPORT
+
+EdgeCloud Monitor – Sprint 3 React Dashboard and Monitoring Visualisation
+
+Overview
+
+During Week 05, development focused on Sprint 3 dashboard implementation for EdgeCloud Monitor.
+
+The main objective was to move from backend-only monitoring workflows into a working React dashboard that connects securely to the cloud-native backend through the API Gateway. This included dashboard authentication, JWT-protected routing, API Gateway CORS fixes, system overview metrics, service health visibility, edge device monitoring, and telemetry metrics visualisation.
+
+This week established the frontend monitoring layer required to make EdgeCloud Monitor usable as an operational dashboard.
+
+⸻
+
+Objectives Completed
+
+* Created the React dashboard foundation
+* Implemented JWT login workflow
+* Added protected dashboard routes
+* Added logout and session persistence
+* Integrated React with the API Gateway
+* Fixed API Gateway CORS and browser preflight handling
+* Corrected API Gateway Docker Compose port configuration
+* Implemented the System Overview dashboard page
+* Displayed live device and telemetry summary metrics
+* Added monitored services list endpoint in the Monitoring Service
+* Implemented service health monitoring support
+* Implemented edge device monitoring view
+* Implemented telemetry metrics view
+* Added dashboard navigation between monitoring views
+* Verified live backend data through the React frontend
+* Collected screenshot evidence for Sprint 3 dashboard progress
+
+⸻
+
+React Dashboard Implementation
+
+Technologies Used
+
+* React
+* JavaScript
+* Vite
+* React Router
+* REST APIs
+* JWT Authentication
+* API Gateway
+* Spring Boot microservices
+* Docker Compose
+* GitHub
+* Jira
+
+Completed Components
+
+The React Dashboard now includes:
+
+* login page
+* authentication context
+* JWT token storage
+* protected route wrapper
+* dashboard layout
+* sidebar navigation
+* header and logout workflow
+* system overview page
+* service health page support
+* edge device monitoring page
+* telemetry metrics page
+* reusable summary cards
+* API service layer
+* loading states
+* empty states
+* error handling
+
+⸻
+
+Authentication Workflow
+
+A JWT authentication flow was implemented for the React dashboard.
+
+Implemented behaviour:
+
+* user login through the Authentication Service
+* JWT token storage in the browser
+* authenticated dashboard access
+* protected route enforcement
+* session persistence after refresh
+* logout workflow
+* role display in the dashboard header
+
+This ensures that only authenticated users can access monitoring functionality.
+
+⸻
+
+API Gateway and CORS Fixes
+
+A major technical issue was identified when the React dashboard attempted to call protected backend APIs through the API Gateway.
+
+Problem encountered:
+
+* browser requests failed due to CORS preflight rejection
+* OPTIONS requests were blocked by the Gateway security layer
+* React could not access protected Monitoring and Device APIs
+
+Resolution:
+
+* added API Gateway CORS configuration
+* allowed the React frontend origin
+* allowed Authorization and Content-Type headers
+* allowed GET, POST, PUT, DELETE, and OPTIONS
+* updated JWT filtering so browser preflight requests could pass correctly
+* verified successful CORS preflight response from the API Gateway
+
+This resolved the React to Gateway communication issue.
+
+⸻
+
+Docker Compose Gateway Configuration
+
+The API Gateway Docker Compose configuration was corrected.
+
+Updated behaviour:
+
+* API Gateway port mapping aligned with runtime port 8095
+* Gateway health check updated to use the correct port
+* React dashboard communication through the Gateway was validated
+
+This ensured that the Docker Compose environment matched the actual service configuration.
+
+⸻
+
+System Overview Dashboard
+
+The System Overview dashboard page was implemented as the main post-login landing page.
+
+Displayed live values included:
+
+* registered devices
+* online devices
+* offline devices
+* telemetry record count
+* service metrics count
+
+Validated dashboard values included:
+
+* Registered Devices: 2
+* Online Devices: 1
+* Offline Devices: 1
+* Telemetry Records: 19
+* Service Metrics: 5
+
+This confirmed that the dashboard was successfully consuming real backend data.
+
+⸻
+
+Monitoring Service API Enhancement
+
+A backend gap was identified during the Service Health Monitoring story.
+
+The expected endpoint was:
+
+GET /api/v1/monitoring/services
+
+The Monitoring Service originally only supported service registration through:
+
+POST /services
+
+A new endpoint was added:
+
+GET /services
+
+This allows the dashboard to retrieve monitored services through the API Gateway.
+
+Validated response included monitored services such as:
+
+* device-service
+* test-service
+
+This fixed the API contract required for the service health monitoring dashboard view.
+
+⸻
+
+Edge Device Monitoring View
+
+A dedicated device monitoring page was implemented.
+
+Endpoint used:
+
+GET /api/v1/devices
+
+Displayed device information includes:
+
+* device name
+* device type
+* IP address
+* ONLINE or OFFLINE status
+* registered timestamp
+* last heartbeat timestamp
+
+Validated devices included:
+
+* raspberry-pi-01
+* heartbeat-pi-01
+
+This provides visibility into Raspberry Pi and simulated edge device availability.
+
+⸻
+
+Telemetry Metrics View
+
+A telemetry metrics dashboard page was implemented.
+
+Endpoint used:
+
+GET /api/v1/monitoring/history
+
+Displayed telemetry data includes:
+
+* latest CPU usage
+* latest memory usage
+* latest temperature
+* total telemetry records
+* recent telemetry history table
+* device ID
+* heartbeat status
+* recorded timestamp
+
+Validated telemetry data included:
+
+* Latest CPU Usage: 84.14%
+* Latest Memory Usage: 64.96%
+* Latest Temperature: 62.6°C
+* Total Telemetry Records: 19
+
+This demonstrates the edge telemetry monitoring value of the platform.
+
+⸻
+
+Technical Challenges Encountered
+
+CORS and Browser Preflight Requests
+
+React requests failed even though terminal curl requests worked.
+
+Cause:
+
+* browsers send OPTIONS preflight requests before authenticated API calls
+* the API Gateway rejected OPTIONS requests before JWT-protected requests could continue
+
+Resolution:
+
+* added Gateway CORS configuration
+* allowed OPTIONS requests
+* verified successful browser-to-Gateway communication
+
+⸻
+
+Stale Eureka Service Discovery Route
+
+After rebuilding the Monitoring Service, the API Gateway attempted to call an outdated container hostname.
+
+Error observed:
+
+Name or service not known
+
+Resolution:
+
+* restarted the API Gateway
+* refreshed Eureka service discovery routing
+* verified Monitoring Service endpoint through the Gateway
+
+⸻
+
+Missing Backend API Contract
+
+The Service Health Monitoring view required a list of monitored services, but the Monitoring Service did not expose a GET endpoint.
+
+Resolution:
+
+* added a monitored services list endpoint
+* rebuilt and restarted the Monitoring Service
+* verified the endpoint through the API Gateway
+* merged the backend fix before continuing frontend integration
+
+⸻
+
+Evidence Collected
+
+Evidence collected during Week 05 includes:
+
+* React dashboard login screenshots
+* system overview dashboard screenshots
+* API Gateway CORS validation output
+* dashboard device metrics screenshots
+* telemetry metrics dashboard screenshots
+* Jira board progress screenshots
+* GitHub pull request evidence
+* successful build logs
+* API response validation through the Gateway
+* Docker Compose validation evidence
+
+⸻
+
+Current Platform Status
+
+Component	Status
+Discovery Service	Operational
+API Gateway	Operational
+Authentication Service	Operational
+Monitoring Service	Operational
+Device Service	Operational
+Alert Service	Running
+React Dashboard	Operational
+JWT Authentication	Implemented
+Protected Routes	Implemented
+System Overview Dashboard	Implemented
+Service Health Data Endpoint	Implemented
+Edge Device Monitoring View	Implemented
+Telemetry Metrics View	Implemented
+Docker Compose Environment	Operational
+
+⸻
+
+Sprint 3 Progress So Far
+
+Completed work includes:
+
+* SCRUM-71 Create React Dashboard Frontend Project
+* SCRUM-72 Implement Dashboard Authentication Flow Using JWT
+* SCRUM-73 Implement System Overview Dashboard Page
+* SCRUM-74 Service Health Monitoring backend support
+* SCRUM-75 Implement Edge Device Monitoring View
+* SCRUM-76 Implement Telemetry Metrics Visualisation View
+* API Gateway CORS fix
+* API Gateway Docker Compose port alignment
+
+⸻
+
+Next Planned Activities
+
+Upcoming work will focus on:
+
+* Alert Service implementation
+* alert creation API
+* active alerts retrieval API
+* alert resolution workflow
+* rule-based alert generation from monitoring conditions
+* active alerts dashboard view
+* dashboard integration testing
+* Sprint 3 evidence collection
+* React dashboard design and UI workflow documentation
+
+⸻
+
+Conclusion
+
+Week 05 successfully moved EdgeCloud Monitor from backend monitoring services into a working React-based monitoring dashboard.
+
+The platform now supports secure dashboard login, protected routing, system overview metrics, device monitoring, telemetry metrics visualisation, and live API integration through the API Gateway.
+
+Several real cloud-native integration issues were identified and resolved, including CORS preflight failures, stale Eureka routing, and a missing Monitoring Service API contract.
+
+This week represents a major Sprint 3 milestone because EdgeCloud Monitor now demonstrates end-to-end functionality across React, API Gateway, JWT authentication, Docker Compose, Eureka, Monitoring Service, Device Service, and MySQL-backed monitoring data.

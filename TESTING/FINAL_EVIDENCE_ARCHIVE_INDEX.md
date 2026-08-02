@@ -95,6 +95,22 @@ Includes:
 
 ---
 
+## Metric Aggregation Evidence
+
+Location:
+
+TESTING/SCRUM-695-METRIC-AGGREGATION-EVIDENCE.md
+
+Includes:
+
+- service aggregation validation
+- device aggregation validation
+- date-range validation
+- empty-result handling
+- project aggregation 501 limitation evidence
+
+---
+
 # 3. Platform Validation Coverage
 
 The final evidence collection demonstrates validation of:
@@ -133,4 +149,3 @@ The evidence archive provides a structured reference for:
 - Presentation preparation
 - Demonstration workflow
 - Future project continuation
-

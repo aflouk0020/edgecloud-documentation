@@ -109,6 +109,49 @@ The response includes:
 
 Results are ordered by recorded timestamp so that the newest monitoring records are returned first.
 
+Aggregation API
+
+The Monitoring Service now exposes focused aggregation endpoints for the dashboard and operational analysis.
+
+Endpoints:
+
+```http
+GET /aggregation/projects/{projectId}
+GET /aggregation/services/{serviceId}
+GET /aggregation/devices/{deviceId}
+```
+
+Supported metrics and rollups:
+
+* average value
+* minimum value
+* maximum value
+* latest value
+* sample count
+* total telemetry received
+* latest telemetry timestamp
+* average response time
+* service availability
+* device availability
+
+Date range handling:
+
+* optional `from` and `to` ISO-8601 query parameters
+* maximum supported range: 90 days
+* empty or open-ended ranges remain valid
+* invalid formats and reversed ranges are rejected with a bad request
+
+Calculation approach:
+
+* existing telemetry and service metric entities are reused
+* repository queries fetch the relevant records for the chosen scope and time window
+* aggregation is performed in the service layer for deterministic results
+* empty datasets return a structured empty-result response instead of failing
+
+Project aggregation limitation:
+
+Project-level aggregation is intentionally returned as `501 Not Implemented` until real project ownership metadata exists in the monitoring domain. This prevents the API from implying secure project isolation that the service cannot yet enforce.
+
 Database Ownership
 
 The Monitoring Service owns the monitoring_db database.
@@ -178,4 +221,3 @@ Evidence collected includes:
 Conclusion
 
 The Monitoring Service provides the observability foundation of EdgeCloud Monitor. It supports service registration, service health monitoring, latency tracking, telemetry ingestion, historical metrics retrieval, dashboard integration, and future alert generation.
-

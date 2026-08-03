@@ -111,6 +111,23 @@ Includes:
 
 ---
 
+## Project Observability Workspace Evidence
+
+Location:
+
+TESTING/SCRUM-692-PROJECT-OBSERVABILITY-WORKSPACE-EVIDENCE.md
+
+Includes:
+
+- workspace summary endpoint validation
+- project authorisation evidence
+- project-centred dashboard route validation
+- service and device enrichment safety evidence
+- empty, loading, error, unauthorised, archived, and partial-success states
+- dependency note for future project-scoped observability aggregation
+
+---
+
 # 3. Platform Validation Coverage
 
 The final evidence collection demonstrates validation of:

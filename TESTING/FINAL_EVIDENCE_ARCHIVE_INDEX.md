@@ -128,6 +128,25 @@ Includes:
 
 ---
 
+## Historical Metrics Explorer Evidence
+
+Location:
+
+TESTING/SCRUM-694-HISTORICAL-METRICS-EVIDENCE.md
+
+Includes:
+
+- project historical-metrics endpoint validation
+- internal Monitoring Service historical query contract
+- project isolation flow
+- date-range and pagination validation
+- deterministic ordering evidence
+- PARTIAL / UNAVAILABLE / NO_DATA behaviour
+- basic timeline/list UI validation
+- final build and test evidence
+
+---
+
 # 3. Platform Validation Coverage
 
 The final evidence collection demonstrates validation of:

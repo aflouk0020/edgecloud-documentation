@@ -147,6 +147,26 @@ Includes:
 
 ---
 
+## Edge Device Health Overview Evidence
+
+Location:
+
+TESTING/SCRUM-697-EDGE-DEVICE-HEALTH-OVERVIEW-EVIDENCE.md
+
+Includes:
+
+- public device-health endpoint validation
+- internal Device Service device-health query contract
+- internal Monitoring Service telemetry-freshness contract
+- project isolation flow
+- device-health mapping rules
+- deterministic device sorting
+- manual and automatic refresh validation
+- responsive table/card UI evidence
+- backend and frontend final validation evidence
+
+---
+
 ## Historical Metrics Explorer Evidence
 
 Location:

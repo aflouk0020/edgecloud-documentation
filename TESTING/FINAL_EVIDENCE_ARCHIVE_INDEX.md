@@ -203,6 +203,25 @@ Includes:
 
 ---
 
+## Historical Metrics CSV Export Evidence
+
+Location:
+
+TESTING/SCRUM-699-EXPORT-PROJECT-OBSERVABILITY-METRICS-EVIDENCE.md
+
+Includes:
+
+- project-scoped CSV export validation
+- public Project Service export endpoint
+- historical query and bounded CSV generation flow
+- project isolation and security rules
+- CSV structure and filename handling
+- frontend export button and download behaviour
+- manual and automatic evidence capture checklist
+- backend and frontend final validation evidence
+
+---
+
 # 3. Platform Validation Coverage
 
 The final evidence collection demonstrates validation of:

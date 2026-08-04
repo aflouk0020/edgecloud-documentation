@@ -128,6 +128,25 @@ Includes:
 
 ---
 
+## Service Health Overview Evidence
+
+Location:
+
+TESTING/SCRUM-696-SERVICE-HEALTH-OVERVIEW-EVIDENCE.md
+
+Includes:
+
+- public service-health endpoint validation
+- internal Monitoring Service service-health query contract
+- project isolation flow
+- health mapping rules
+- summary counts and deterministic service sorting
+- manual and automatic refresh validation
+- responsive table/card UI evidence
+- backend and frontend final validation evidence
+
+---
+
 ## Historical Metrics Explorer Evidence
 
 Location:

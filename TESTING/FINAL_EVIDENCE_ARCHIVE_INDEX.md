@@ -186,6 +186,23 @@ Includes:
 
 ---
 
+## Real-Time Observability Updates Evidence
+
+Location:
+
+TESTING/SCRUM-698-REAL-TIME-OBSERVABILITY-UPDATES-EVIDENCE.md
+
+Includes:
+
+- shared polling foundation
+- summary, service-health, device-health, and historical polling behaviour
+- connection states and non-intrusive warnings
+- hidden-tab pause and visibility recovery
+- retry/backoff and cleanup validation
+- final dashboard test and build evidence
+
+---
+
 # 3. Platform Validation Coverage
 
 The final evidence collection demonstrates validation of:

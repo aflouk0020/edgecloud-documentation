@@ -221,6 +221,26 @@ Includes:
 
 ---
 
+## Alert Rule Evaluation Engine Evidence
+
+Location:
+
+TESTING/SCRUM-702-ALERT-RULE-EVALUATION-ENGINE-EVIDENCE.md
+
+Includes:
+
+- active device and service ownership resolution
+- persisted monitoring sample to internal rule-evaluation flow
+- project, metric, device, and service scope enforcement
+- BigDecimal threshold comparison for all supported operators
+- stable sample identifiers and duplicate-processing protection
+- downstream failure isolation and bearer-token propagation
+- selective candidate lookup, deterministic ordering, and controlled 500-rule `< 1,000 ms` performance evidence
+- Java 21 validation across Project, Alert, and Monitoring services
+- manual screenshots and runtime captures marked pending
+
+---
+
 ## Historical Metrics CSV Export Evidence
 
 Location:

@@ -370,6 +370,17 @@ Device registration and heartbeat operations must be retry-safe.
 
 ## 20. Alert and Incident API Plan
 
+### Implemented baseline through SCRUM-703
+
+The delivered read-only project alert-event contract is:
+
+| Method | Endpoint | Purpose |
+| --- | --- | --- |
+| GET | /api/v2/projects/{projectId}/alerts | List authorised project alert history with status, severity, source, date, pagination, and sort filters |
+| GET | /api/v2/projects/{projectId}/alerts/{alertId} | Retrieve one alert only within the authorised project |
+
+The delivered defaults are page 0, size 20, maximum size 100, and `triggeredAt DESC` with `id ASC` fallback. These endpoints are JWT-protected and read-only. Acknowledgement, manual resolution, incidents, and notification APIs below remain future work.
+
 Potential endpoints include:
 
 | Method | Endpoint | Purpose |

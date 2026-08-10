@@ -241,6 +241,28 @@ Includes:
 
 ---
 
+## Alert Event Generation and Lifecycle Evidence
+
+Location:
+
+TESTING/SCRUM-703-ALERT-EVENT-GENERATION-LIFECYCLE-EVIDENCE.md
+
+Includes:
+
+- durable OPEN and RESOLVED alert-event lifecycle
+- AlertEvaluationResult orchestration and evidence snapshots
+- MySQL generated-column active uniqueness design
+- real MySQL 8.4 Testcontainers and 20-way concurrency proof
+- resolution, re-trigger, and multiple-resolved-history evidence
+- project-scoped V2 list/detail API, isolation, filters, and pagination
+- controlled lifecycle/query performance measurements
+- API Gateway routing and JWT protection
+- responsive project Alert History dashboard and full frontend validation
+- all 15 acceptance criteria marked with concrete evidence
+- manual screenshots and runtime captures marked pending
+
+---
+
 ## Historical Metrics CSV Export Evidence
 
 Location:

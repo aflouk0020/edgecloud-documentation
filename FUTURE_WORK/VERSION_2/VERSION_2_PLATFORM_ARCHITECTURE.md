@@ -400,6 +400,9 @@ Alert deduplication
 Escalation
 Notification coordination
 Alert history
+
+Implemented through SCRUM-703: project-scoped alert-rule evaluation produces durable AlertEvent history with OPEN/RESOLVED lifecycle state, atomic active-event deduplication, read-only project list/detail APIs, Gateway routing, and dashboard presentation. Acknowledgement, assignment, notification coordination, escalation, suppression, incidents, and manual lifecycle mutation remain future responsibilities rather than delivered SCRUM-703 behavior.
+
 It may consume events or API data from:
 Monitoring Service
 Build capability

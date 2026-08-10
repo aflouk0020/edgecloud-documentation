@@ -156,6 +156,12 @@ Device ownership must remain separate from monitoring-history ownership.
 
 ## 8. Alert and Incident Data Plan
 
+### Implemented baseline through SCRUM-703
+
+Alert Service now owns an `alert_events` history table containing alert/rule/project identity, rule-name snapshot, source identity, metric evidence, threshold/operator/severity snapshots, OPEN/RESOLVED status, and trigger/observation/resolution/audit timestamps. A generated `open_marker` is `1` for OPEN and `NULL` for RESOLVED. A composite unique key over project, rule, source type, source ID, metric type, and this marker permits historical RESOLVED rows while preventing more than one active OPEN row.
+
+Acknowledgement, assignment, notification, escalation, suppression, and incident data remain unimplemented future extensions.
+
 Alert data may include:
 
 - Alert identifier

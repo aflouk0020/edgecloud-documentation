@@ -201,6 +201,24 @@ Includes:
 - retry/backoff and cleanup validation
 - final dashboard test and build evidence
 
+## Alert Rule Management Evidence
+
+Location:
+
+TESTING/SCRUM-701-ALERT-RULE-MANAGEMENT-EVIDENCE.md
+
+Includes:
+
+- project-scoped AlertRule model and Flyway migration
+- secured REST endpoint contract
+- JWT and project-role authorization
+- device/service association validation
+- API Gateway routing
+- responsive dashboard rule-management UI
+- 28 passing Alert Service tests and 125 passing dashboard tests
+- successful Java 21 compile/package and dashboard production build
+- manual screenshot evidence marked pending
+
 ---
 
 ## Historical Metrics CSV Export Evidence

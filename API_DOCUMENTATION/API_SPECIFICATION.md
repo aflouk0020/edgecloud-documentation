@@ -12,6 +12,12 @@ All require bearer JWT and project access; policy mutation requires PROJECT_ADMI
 | PUT | `/api/v2/projects/{projectId}/escalation-policy` | Replace policy configuration. |
 | PATCH | `/api/v2/projects/{projectId}/escalation-policy/enabled` | Enable or disable evaluation. |
 | GET | `/api/v2/projects/{projectId}/alerts/{alertId}/escalations` | Read escalation history. |
+| GET | `/api/v2/projects/{projectId}/maintenance-windows` | List maintenance windows and derived time status. |
+| POST | `/api/v2/projects/{projectId}/maintenance-windows` | Create a project/service/device maintenance window (ADMIN/PROJECT_ADMIN). |
+| GET | `/api/v2/projects/{projectId}/maintenance-windows/{windowId}` | Read a project-scoped maintenance window. |
+| PUT | `/api/v2/projects/{projectId}/maintenance-windows/{windowId}` | Update a maintenance window (ADMIN/PROJECT_ADMIN). |
+| DELETE | `/api/v2/projects/{projectId}/maintenance-windows/{windowId}` | Disable a window while retaining evidence (ADMIN/PROJECT_ADMIN). |
+| GET | `/api/v2/projects/{projectId}/maintenance-windows/{windowId}/suppressions` | Read immutable suppression history. |
 
 Levels contain `levelNumber`, `elapsedSeconds`, `targetSeverity`, and `enabled`. Thresholds must increase. Internal processing is not publicly routed.
 

@@ -18,6 +18,7 @@ TESTING/
 
 Includes:
 
+- SCRUM-713 Alert Suppression and Maintenance evidence
 - SCRUM-712 Alert Escalation Policy Engine evidence
 
 - SCRUM-64 End-to-End Validation

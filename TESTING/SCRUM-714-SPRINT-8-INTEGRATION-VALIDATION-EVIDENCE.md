@@ -25,7 +25,7 @@ curl through Gateway for telemetry and representative Sprint 8 V2 APIs
 | Dashboard | 160/160 passed; production build passed |
 | Project Service | 218/218 passed on the preserved SCRUM-711 working tree |
 | Auth Service | 10/10 passed on the preserved SCRUM-711 working tree |
-| Device Service | 18/19 passed; one fixed test JWT is expired at the validation date and returned 401 instead of 200 |
+| Device Service | 19/19 passed after replacing a wall-clock-expired fixed test JWT with a bounded current test token |
 
 The first highly parallel Dashboard run exposed three timing-sensitive filter-chip test failures; an immediate complete retry passed all 160 tests. No product code was changed for the retry.
 
@@ -50,7 +50,6 @@ Five sequential end-to-end Gateway telemetry calls during maintenance completed 
 ## Known limitations
 
 - Project and Auth repositories contained preserved unpublished SCRUM-711 working-tree changes before SCRUM-714. They were tested but deliberately not modified, staged or repackaged by this validation story.
-- Device Service has one time-expired fixed-JWT test fixture; runtime device registration, association and protected security behavior remain operational.
 - The Dashboard timing-sensitive filter-chip tests passed on the clean full retry but should be monitored for future CI flakiness.
 
 ## Manual evidence checklist

@@ -1,12 +1,19 @@
 # EdgeCloud Monitor
 ## API Specification
 
-### SCRUM-712 project escalation APIs
+### Sprint 8 intelligent alerting APIs
 
 All require bearer JWT and project access; policy mutation requires PROJECT_ADMIN or platform ADMIN.
 
 | Method | Path | Purpose |
 |---|---|---|
+| GET | `/api/v2/projects/{projectId}/alert-rules` | List project alert rules. |
+| POST | `/api/v2/projects/{projectId}/alert-rules` | Create a validated project rule. |
+| GET | `/api/v2/projects/{projectId}/alerts` | Read filtered/paged alert lifecycle history. |
+| GET | `/api/v2/projects/{projectId}/alerts/{alertId}` | Read one project-scoped alert. |
+| POST | `/api/v2/projects/{projectId}/alerts/{alertId}/acknowledgement` | Acknowledge and own an active alert. |
+| DELETE | `/api/v2/projects/{projectId}/alerts/{alertId}/acknowledgement` | Release permitted ownership. |
+| GET | `/api/v2/projects/{projectId}/alerts/{alertId}/ownership-history` | Read ownership audit history. |
 | GET | `/api/v2/projects/{projectId}/escalation-policy` | Read policy and ordered levels. |
 | POST | `/api/v2/projects/{projectId}/escalation-policy` | Create policy. |
 | PUT | `/api/v2/projects/{projectId}/escalation-policy` | Replace policy configuration. |
@@ -18,6 +25,10 @@ All require bearer JWT and project access; policy mutation requires PROJECT_ADMI
 | PUT | `/api/v2/projects/{projectId}/maintenance-windows/{windowId}` | Update a maintenance window (ADMIN/PROJECT_ADMIN). |
 | DELETE | `/api/v2/projects/{projectId}/maintenance-windows/{windowId}` | Disable a window while retaining evidence (ADMIN/PROJECT_ADMIN). |
 | GET | `/api/v2/projects/{projectId}/maintenance-windows/{windowId}/suppressions` | Read immutable suppression history. |
+| GET | `/api/v2/notifications` | Read the authenticated user's notification page. |
+| GET | `/api/v2/notifications/unread-count` | Read unread count. |
+| PATCH | `/api/v2/notifications/{notificationId}/read` | Mark one owned notification read. |
+| PATCH | `/api/v2/notifications/read-all` | Mark all owned notifications read. |
 
 Levels contain `levelNumber`, `elapsedSeconds`, `targetSeverity`, and `enabled`. Thresholds must increase. Internal processing is not publicly routed.
 

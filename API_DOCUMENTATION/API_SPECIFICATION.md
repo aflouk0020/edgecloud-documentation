@@ -1,6 +1,20 @@
 # EdgeCloud Monitor
 ## API Specification
 
+### SCRUM-712 project escalation APIs
+
+All require bearer JWT and project access; policy mutation requires PROJECT_ADMIN or platform ADMIN.
+
+| Method | Path | Purpose |
+|---|---|---|
+| GET | `/api/v2/projects/{projectId}/escalation-policy` | Read policy and ordered levels. |
+| POST | `/api/v2/projects/{projectId}/escalation-policy` | Create policy. |
+| PUT | `/api/v2/projects/{projectId}/escalation-policy` | Replace policy configuration. |
+| PATCH | `/api/v2/projects/{projectId}/escalation-policy/enabled` | Enable or disable evaluation. |
+| GET | `/api/v2/projects/{projectId}/alerts/{alertId}/escalations` | Read escalation history. |
+
+Levels contain `levelNumber`, `elapsedSeconds`, `targetSeverity`, and `enabled`. Thresholds must increase. Internal processing is not publicly routed.
+
 ---
 
 # 1. Introduction

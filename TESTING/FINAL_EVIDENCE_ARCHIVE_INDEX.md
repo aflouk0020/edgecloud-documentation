@@ -18,6 +18,8 @@ TESTING/
 
 Includes:
 
+- SCRUM-712 Alert Escalation Policy Engine evidence
+
 - SCRUM-64 End-to-End Validation
 - Complete platform workflow validation
 - Service communication verification

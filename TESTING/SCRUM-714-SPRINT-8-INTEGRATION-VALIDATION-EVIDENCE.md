@@ -22,9 +22,9 @@ curl through Gateway for telemetry and representative Sprint 8 V2 APIs
 | Alert Service | 124/124 passed, including MySQL concurrency |
 | Notification Service | 56/56 passed |
 | API Gateway | 6/6 passed |
-| Dashboard | 160/160 passed; production build passed |
+| Dashboard | 164/164 passed after the post-validation login hardening; production build passed |
 | Project Service | 218/218 passed; unpublished SCRUM-711 recipient resolution reconciled in PR #9 |
-| Auth Service | 10/10 passed; unpublished SCRUM-711 identity resolution reconciled in PR #9 |
+| Auth Service | 13/13 passed after the post-validation development-account hardening; unpublished SCRUM-711 identity resolution reconciled in PR #9 |
 | Device Service | 19/19 passed after replacing a wall-clock-expired fixed test JWT with a bounded current test token |
 
 The first highly parallel Dashboard run exposed three timing-sensitive filter-chip test failures; an immediate complete retry passed all 160 tests. No product code was changed for the retry.
@@ -53,6 +53,15 @@ Five sequential end-to-end Gateway telemetry calls during maintenance completed 
 
 The pre-existing Project and Auth SCRUM-711 working trees were contract-checked against Notification Service, rebuilt on Java 21, and merged through their respective PR #9. Both repositories were returned to clean, updated `main`.
 
+## Final closure audit — 16 August 2026
+
+- All relevant repositories matched `origin/main`; the only workspace artefact was the explicitly preserved, unrelated `EdgeCloudMonitor/....` file.
+- Compose configuration remained valid. Docker reported 15 running containers, all reported health checks were healthy, and all seven application containers had zero restarts.
+- Eureka reported one `UP` instance for each of the seven EdgeCloud applications.
+- Alert Flyway versions V2–V7, Notification V1–V5 and Project V1 remained applied exactly once with successful status. Persisted alert lifecycle, ownership, escalation, maintenance-window, suppression, outbox, notification source-event and delivery evidence remained present.
+- The Auth and Dashboard post-validation fixes had already passed 13/13 and 164/164 tests respectively, including the React login/navigation regression, and their production builds had passed before merge.
+- Large clean rebuilds were not repeated during this audit because the host had only 242 MiB free. The accepted full regression evidence above remains the authoritative SCRUM-714 run.
+
 ## Manual evidence checklist
 
 Manual screenshots remain **PENDING MANUAL CAPTURE**:
@@ -60,5 +69,8 @@ Manual screenshots remain **PENDING MANUAL CAPTURE**:
 1. Project Alert History showing the alert owner, acknowledgement history and both escalation levels.
 2. Maintenance page showing the expired SCRUM-714 window and suppression history containing all five suppressed evaluations.
 3. Notification panel showing delivered OPENED and escalation notifications for the resolved recipients.
-4. Docker Desktop or `docker compose ps` showing all 15 containers healthy.
-5. Eureka Applications page showing all seven EdgeCloud applications registered `UP`.
+4. Mailpit showing the corresponding delivered alert and escalation emails.
+5. Dashboard alerting pages showing alert detail, ownership, escalation, maintenance and notifications without runtime errors.
+6. Docker Desktop or `docker ps` showing all 15 containers healthy.
+7. Eureka Applications page showing all seven EdgeCloud applications registered `UP`.
+8. Representative Gateway responses showing authenticated success plus 400, 401, 403 and safe 404 handling.

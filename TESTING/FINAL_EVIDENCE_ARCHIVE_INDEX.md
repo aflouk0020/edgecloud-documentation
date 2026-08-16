@@ -329,3 +329,6 @@ The evidence archive provides a structured reference for:
 - Presentation preparation
 - Demonstration workflow
 - Future project continuation
+# SCRUM-719
+
+- [Device heartbeat testing and runtime evidence](SCRUM-719-DEVICE-HEARTBEAT-EVIDENCE.md)

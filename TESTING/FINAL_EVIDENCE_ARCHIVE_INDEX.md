@@ -21,6 +21,7 @@ Includes:
 - Sprint 9 Device Inventory Dashboard automated and runtime evidence
 - Sprint 9 Device Registration and Lifecycle automated, runtime, security, and manual-capture evidence
 - SCRUM-717 Device Configuration Management automated, runtime, security, versioning, template, and manual-capture evidence
+- SCRUM-720 Device Maintenance Mode automated, runtime, security, Flyway, Docker/Eureka, and manual-capture evidence
 - SCRUM-714 Sprint 8 integrated validation evidence
 - SCRUM-713 Alert Suppression and Maintenance evidence
 - SCRUM-712 Alert Escalation Policy Engine evidence
@@ -329,6 +330,10 @@ The evidence archive provides a structured reference for:
 - Presentation preparation
 - Demonstration workflow
 - Future project continuation
-# SCRUM-719
+## SCRUM-719
 
 - [Device heartbeat testing and runtime evidence](SCRUM-719-DEVICE-HEARTBEAT-EVIDENCE.md)
+
+## SCRUM-720
+
+- [Device maintenance testing and runtime evidence](SCRUM-720-DEVICE-MAINTENANCE-EVIDENCE.md)

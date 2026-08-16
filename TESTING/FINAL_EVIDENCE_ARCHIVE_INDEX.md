@@ -317,6 +317,8 @@ and include:
 - Deployment evidence
 - Presentation materials
 
+Sprint 9 device-organisation evidence is recorded in `TESTING/SCRUM-718-DEVICE-ORGANISATION-EVIDENCE.md`; screenshots remain pending manual capture.
+
 ---
 
 # 5. Evidence Management Outcome

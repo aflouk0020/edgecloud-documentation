@@ -20,6 +20,7 @@ Includes:
 
 - Sprint 9 Device Inventory Dashboard automated and runtime evidence
 - Sprint 9 Device Registration and Lifecycle automated, runtime, security, and manual-capture evidence
+- SCRUM-717 Device Configuration Management automated, runtime, security, versioning, template, and manual-capture evidence
 - SCRUM-714 Sprint 8 integrated validation evidence
 - SCRUM-713 Alert Suppression and Maintenance evidence
 - SCRUM-712 Alert Escalation Policy Engine evidence
